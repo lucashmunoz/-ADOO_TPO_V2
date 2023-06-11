@@ -12,7 +12,7 @@ public class ControllerUsuario {
 	
 	private ControllerUsuario() {}
 	public static ControllerUsuario getInstance() {return instance;}
-	public UsuarioDTO traerDatos(String username) {}
+	public UsuarioDTO traerDatos(String username) {return null;}
 	public void realizarVisita(Visita visita) {}
 	public void realizarSeguimiento(AlarmaSeguimiento alarmaSeguimiento, SeguimientoMedico seguimientoMedico) {}
 }

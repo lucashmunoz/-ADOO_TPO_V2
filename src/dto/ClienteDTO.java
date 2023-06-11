@@ -3,7 +3,6 @@ package dto;
 import java.util.List;
 
 import model.Animal;
-import model.TipoAnimal;
 
 public class ClienteDTO {
 	private String nombre;

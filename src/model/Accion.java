@@ -2,6 +2,6 @@ package model;
 
 public class Accion {
 	private String accionARealizar;
-	private EstadoAccion estado;
+	private Boolean completada;
 	private String comentario;
 }

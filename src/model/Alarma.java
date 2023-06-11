@@ -9,10 +9,8 @@ public abstract class Alarma {
 	private Date ultimaEjecucionAlarma;
 	private List<Accion> acciones;
 	private EstadoAlarma estadoAlarma;
-	private EstrategiaAlarma estrategiaAlarma;
 	private String descripcion;
 	
 	public void cambiarEstadoAlarma(EstadoAlarma estadoAlarma) {}
 	
-	public void setEstrategiaAlarma(EstrategiaAlarma estrategiaAlarma) {}
 }

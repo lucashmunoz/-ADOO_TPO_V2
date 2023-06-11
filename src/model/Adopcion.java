@@ -2,6 +2,8 @@ package model;
 
 import java.sql.Date;
 
+import dto.AdopcionDTO;
+
 public class Adopcion {
 	private Animal animal;
 	private Cliente cliente;
