@@ -3,11 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import exportador_ficha_tecnica.ContenidoExportar;
-import exportador_ficha_tecnica.ExportadorFichaMedica;
+
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
