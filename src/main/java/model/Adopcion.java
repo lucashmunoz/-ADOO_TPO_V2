@@ -3,12 +3,21 @@ package model;
 import java.sql.Date;
 
 import dto.AdopcionDTO;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
+@AllArgsConstructor
 public class Adopcion{
+	@Getter
+	private static List<Adopcion> adopciones = new ArrayList<>();
+
 	private Animal animal;
 	private Cliente cliente;
-	private Date fechaAdopcion;
-	private String comentario;
+	private LocalDateTime fechaAdopcion;
 	private Veterinario veterinario;
 	private SeguimientoDomiciliario seguimientoDomiciliario;
 

@@ -13,6 +13,7 @@ import model.TipoAnimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AnimalDTO {
+  private String legajo;
   private TipoAnimal tipoAnimal;
   private float altura;
   private float peso;
