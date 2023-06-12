@@ -2,11 +2,14 @@ package model;
 
 import java.util.List;
 
+import notificador_cliente.NotificacionCliente;
+import notificador_cliente.NotificadorCliente;
+
 public class SeguimientoDomiciliario {
 	private int cadenaVisitas;
-	private Notificador preferenciasRecordatorio;
+	private NotificadorCliente preferenciasRecordatorio;
 	private int diasAnticipacionRecordatorio;
 	private List<Visita> visitas;
 	
-	public void enviarNotificacion(Notificacion notificacion) {}
+	public void enviarNotificacion(NotificacionCliente notificacion) {}
 }

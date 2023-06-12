@@ -1,4 +1,4 @@
-package model;
+package alarma.notificador;
 
 import dto.NotificacionPushDTO;
 

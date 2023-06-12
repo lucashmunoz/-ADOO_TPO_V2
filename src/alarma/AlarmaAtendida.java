@@ -1,6 +1,8 @@
-package model;
+package alarma;
 
 import java.sql.Date;
+
+import model.Veterinario;
 
 public class AlarmaAtendida implements EstadoAlarma {
 

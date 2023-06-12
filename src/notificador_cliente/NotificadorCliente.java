@@ -1,8 +1,8 @@
-package model;
+package notificador_cliente;
 
-public class Notificador {
+public class NotificadorCliente {
 	private EstrategiaDeNotificacion estrategiaDeNotificacion;
 	
-	public void enviar(Notificacion notificacion) {}
+	public void enviar(NotificacionCliente notificacion) {}
 	public void cambiarEstrategiaDeNotificacion(EstrategiaDeNotificacion nuevaEstrategia) {}
 }

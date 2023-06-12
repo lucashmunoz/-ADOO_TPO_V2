@@ -1,8 +1,8 @@
-package model;
+package autenticacion;
 
 import dto.UsuarioDTO;
 
-public class AdapterAutentificacionAct implements AdapterAutentificacion {
+public class ModuloAutenticacion implements AdapterAutentificacion {
 	public UsuarioDTO traerDatosUsuario(String username)
 	{
 		return new UsuarioDTO();

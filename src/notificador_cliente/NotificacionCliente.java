@@ -1,6 +1,6 @@
-package model;
+package notificador_cliente;
 
-public class Notificacion {
+public class NotificacionCliente {
 	private String emailRemitente;
 	private String emailDestinatario;
 	private String mensaje;

@@ -1,4 +1,4 @@
-package model;
+package autenticacion;
 
 import dto.UsuarioDTO;
 

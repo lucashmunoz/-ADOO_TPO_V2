@@ -1,4 +1,4 @@
-package model;
+package alarma;
 
 public class AlarmaVisita extends Alarma {
 
