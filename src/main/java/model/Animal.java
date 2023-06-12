@@ -10,11 +10,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Animal {
 
+	//Lista estatica que simula una tabla en una base de datos
 	@Getter
 	private static List<Animal> animales = new ArrayList<>();;
-	private TipoAnimal tipoAnimal;
 	private FichaTecnica fichaTecnica;
-	private String origen;
 	private LocalDateTime fechaIngreso;
 	private boolean esSalvaje;
 	private boolean estaBajoTratamiento;
