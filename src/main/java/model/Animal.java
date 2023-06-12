@@ -11,6 +11,7 @@ import lombok.ToString;
 @Getter
 @AllArgsConstructor
 @Setter
+@ToString
 public class Animal {
 
 	//Lista estatica que simula una tabla en una base de datos

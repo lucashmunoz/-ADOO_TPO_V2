@@ -9,7 +9,7 @@ import dto.AlarmaDTO;
 import model.Usuario;
 
 public class ControllerAlarma {
-	private static ControllerAlarma instance = ControllerAlarma.getInstance();
+	private static ControllerAlarma instance = new ControllerAlarma();
 	private ControllerAlarma() {}
 	public static ControllerAlarma getInstance() {return instance;}
 

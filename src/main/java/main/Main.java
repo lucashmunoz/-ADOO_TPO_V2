@@ -5,11 +5,13 @@ import controller.ControllerAnimal;
 import controller.ControllerCliente;
 import controller.ControllerUsuario;
 import controller.ControllerVeterinario;
+import controller.ControllerVisitador;
 import dto.AdopcionDTO;
 import dto.AnimalDTO;
 import dto.ClienteDTO;
 import dto.SeguimientoDomiciliarioDTO;
 import dto.UsuarioDTO;
+import dto.VisitaDTO;
 import exportador_ficha_tecnica.ContenidoExportar;
 import exportador_ficha_tecnica.ExportadorFichaMedica;
 import exportador_ficha_tecnica.ExportarExcel;
@@ -20,6 +22,7 @@ import java.util.Optional;
 import java.util.Scanner;
 import model.Animal;
 import model.Cliente;
+import model.EstadoAmbiente;
 import model.TipoAnimal;
 import model.TipoUsuario;
 import model.Veterinario;
@@ -44,20 +47,29 @@ public class Main {
   private static NotificadorCliente notificadorCliente = NotificadorCliente.getInstance();
 
   private static ExportadorFichaMedica exportadorFichaMedica = ExportadorFichaMedica.getInstance();
+
+  private static ControllerVisitador controllerVisitador = ControllerVisitador.getInstance();
   private static final Scanner s = new Scanner(System.in);
 
   public static void main(String[] args) {
     cargarDatos();
-    var user = login();
-    if (user.isPresent()) {
-      if (user.get().getTipoUsuario().equals(TipoUsuario.VETERINARIO)) {
-        menuVeterinario(user.get().getUsername());
-      }else{
-        menuVisitador();
+    boolean entradaOk = false;
+    while(!entradaOk) {
+      var user = login();
+      if (user.isPresent()) {
+        if (user.get().getTipoUsuario().equals(TipoUsuario.VETERINARIO)) {
+          menuVeterinario(user.get().getUsername());
+        } else {
+          menuVisitador(user.get().getUsername());
+        }
+
       }
-
+      System.out.println("Si desea salir del programa pulse 1, de lo contrario ingrese cualquier opción y podrá reloguearse.");
+      String entradaUsuario = s.nextLine();
+      if(entradaUsuario.equals("1")){
+        entradaOk = true;
+      }
     }
-
 
   }
 
@@ -303,6 +315,7 @@ public class Main {
 
       if(controllerVeterinario.validarSeguimientoDomiciliario(seguimientoDomiciliarioDTO)){
         datosOK = true;
+        adopcionDTO.setFechaAdopcion(LocalDateTime.now());
         controllerVeterinario.crearAdopcion(adopcionDTO, seguimientoDomiciliarioDTO);
       }else
         entradaOk = false;
@@ -383,9 +396,51 @@ public class Main {
 
   }
 
-  private static void menuVisitador() {
-    System.out.println("¿Qué desea hacer?\n1-Realizar Visita\n2-Salir");
+  private static void menuVisitador(String username) {
+    System.out.println("¿Qué desea hacer?\n1-Visitar Animal\n4-Salir");
     String entradaUsuario = s.nextLine();
+    if (entradaUsuario.equals("1")) {
+      visitarAnimal(username);
+    }
+    if (entradaUsuario.equals("2")) {
+
+    }
+
+    if (entradaUsuario.equals("3")) {
+
+    }
+
+
+    if (!entradaUsuario.equals("3") && !entradaUsuario.equals("2") && !entradaUsuario.equals("1")) {
+      System.out.println("Ingrese una opción válida");
+    }
+  }
+
+  private static void visitarAnimal(String username){
+    boolean entradaOk = false;
+    while (!entradaOk) {
+      System.out.println(
+          "Seleccione el animal que desea visitar ingresando su número de legajo tal cual está escrito: ");
+      boolean existe = controllerAnimal.obtenerAnimalesAVisitar();
+      String entradaUsuario = s.nextLine();
+      Optional<Animal> animal = controllerAnimal.getAnimalByLegajo(entradaUsuario);
+      if (animal.isEmpty() && existe) {
+        System.out.println(
+            "El número de legajo ingresado no existe en nuestra base de datos. Ingrese uno correcto.");
+      } else {
+        entradaOk = true;
+        if(existe){
+          var visita = new VisitaDTO();
+          visita.setFecha(LocalDateTime.now());
+          visita.setAmbiente(EstadoAmbiente.BUENO);
+          visita.setComentario("OK");
+          controllerVisitador.realizarVisita(controllerVisitador.getVisitadorByUsername(username).get(), animal.get(), visita);
+          System.out.println(animal.get().getFichaTecnica().getSeguimientoDomiciliario().getVisitas().get(animal.get().getFichaTecnica().getSeguimientoDomiciliario().getVisitas().size() -1));
+        }
+      }
+
+    }
+
   }
 
 }

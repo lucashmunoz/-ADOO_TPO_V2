@@ -2,6 +2,7 @@ package alarma;
 
 import dto.NotificacionPushDTO;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 
@@ -10,7 +11,7 @@ import lombok.Getter;
 public class BotAlarma {
 
   @Getter
-  private static List<Alarma> alarmas;
+  private static List<Alarma> alarmas = new ArrayList<>();
   private static BotAlarma instance = new BotAlarma();
 
   public void enviarNotificacion(Alarma alarma) {
