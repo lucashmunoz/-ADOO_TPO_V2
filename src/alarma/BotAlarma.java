@@ -1,8 +1,8 @@
-package model;
+package alarma;
 
 import java.util.List;
 
-import alarma.Alarma;
+import alarma.notificador.NotificadorPushAdapter;
 
 public class BotAlarma {
 	private List<Alarma> alarmas;
@@ -13,5 +13,6 @@ public class BotAlarma {
 	public void verificarFechaAlarma() {}
 	private BotAlarma() {}
 	public static BotAlarma getInstance() {return new BotAlarma();}
+
 	
 }
