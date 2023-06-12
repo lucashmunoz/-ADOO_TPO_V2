@@ -8,6 +8,7 @@ import model.Animal;
 import model.SeguimientoDomiciliario;
 import model.SeguimientoMedico;
 import model.Visita;
+import model.Visitador;
 import utils.Utils;
 
 public class ControllerVisitador {
@@ -29,10 +30,10 @@ public class ControllerVisitador {
 
   }
 
-  public void realizarVisita(Animal animal, VisitaDTO dto){
-
-   animal.getFichaTecnica().getSeguimientoDomiciliario().getVisitas().add(Utils.mapper.map(dto, Visita.class));
-
+  public void realizarVisita(Visitador visitador, Animal animal, VisitaDTO dto){
+    var visita = Utils.mapper.map(dto, Visita.class);
+    visita.setVisitador(visitador);
+    animal.getFichaTecnica().getSeguimientoDomiciliario().getVisitas().add(visita);
   }
 
 

@@ -14,6 +14,7 @@ import model.Usuario;
 public  class Alarma {
 	private Usuario atendidaPor;
 	private Animal animal;
+	private TipoAlarma tipoAlarma;
 	private int periodicidadDias;
 	private LocalDateTime ultimaEjecucionAlarma;
 	private List<Accion> acciones;

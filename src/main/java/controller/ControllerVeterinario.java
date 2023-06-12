@@ -2,6 +2,7 @@ package controller;
 
 
 import alarma.Accion;
+import alarma.TipoAlarma;
 import dto.AdopcionDTO;
 import dto.AlarmaDTO;
 import dto.AnimalDTO;
@@ -69,7 +70,7 @@ public class ControllerVeterinario {
 
     SeguimientoDomiciliario seguimientoDomiciliario = new SeguimientoDomiciliario(
         Integer.parseInt(seguimientoDTO.getCadenciaVisitas()), seguimientoDTO.getPreferenciasRecordatorio(),
-        Integer.parseInt(seguimientoDTO.getDiasAnticipacionRecordatorio()));
+        Integer.parseInt(seguimientoDTO.getDiasAnticipacionRecordatorio()), LocalDateTime.now().plusDays(Integer.parseInt(seguimientoDTO.getCadenciaVisitas())));
 
     Adopcion.getAdopciones().add(
         new Adopcion(dto.getAnimal(), dto.getCliente(), LocalDateTime.now(),
@@ -87,6 +88,8 @@ public class ControllerVeterinario {
     accion.setComentario("Visita domiciliaria.");
     alarma.getAcciones().add(accion);
     alarma.setDescripcion("Alarma de visita.");
+    alarma.setTipoAlarma(TipoAlarma.VISITA);
+
     controllerAlarma.crearAlarma(alarma);
     System.out.println("Se ha generado la alarma para la visita.");
 

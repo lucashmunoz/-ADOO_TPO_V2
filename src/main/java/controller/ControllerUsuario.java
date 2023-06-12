@@ -27,7 +27,6 @@ public class ControllerUsuario {
   public void realizarVisita(Visita visita) {
   }
 
-  public void realizarSeguimiento(AlarmaSeguimiento alarmaSeguimiento,
-      SeguimientoMedico seguimientoMedico) {
+  public void realizarSeguimiento() {
   }
 }
