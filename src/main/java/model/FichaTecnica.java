@@ -1,22 +1,35 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import exportador_ficha_tecnica.ContenidoExportar;
 import exportador_ficha_tecnica.ExportadorFichaMedica;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class FichaTecnica {
-	private Animal animal;
+	private TipoAnimal tipoAnimal;
 	private float altura;
 	private float peso;
 	private int edad;
-	private boolean condicionMedica;
+	private boolean condicionMedicaOk;
 	private Cliente dueno;
 	private List<TratamientoMedico> tratamientosMedicos;
 	private SeguimientoDomiciliario seguimientoDomiciliario;
-	private ExportadorFichaMedica exportadorFichaMedica;
-	
-	public void getAnimal(Animal animal) {}
-	public void exportar(ContenidoExportar contenidoExportar) {
+	public FichaTecnica(TipoAnimal tipoAnimal, float altura, float peso, int edad, boolean condicionMedicaOk){
+			this.tipoAnimal = tipoAnimal;
+			this.altura = altura;
+			this.peso = peso;
+			this.edad = edad;
+			this.condicionMedicaOk = condicionMedicaOk;
+			this.tratamientosMedicos = new ArrayList<>();
 	}
+
+	public void agregarTratamientoMedico(TratamientoMedico tratamientoMedico){
+		this.tratamientosMedicos.add(tratamientoMedico);
+	}
+
 }
