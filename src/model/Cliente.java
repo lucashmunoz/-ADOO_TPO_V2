@@ -1,9 +1,10 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
-	private static List<Cliente> clientes;
+	private static List<Cliente> clientes = new ArrayList<>();;
 	private String nombre;
 	private String apellido;
 	private String estadoCivil;

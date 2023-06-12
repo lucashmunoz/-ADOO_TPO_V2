@@ -1,13 +1,16 @@
 package model;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
+@AllArgsConstructor
 public abstract class Usuario {
-	private static List<Usuario> usuarios;
 	private String username;
 	private String nombre;
 	private String apellido;
 	private String dni;
 	private String email;
 	private String numTelefono;
+
 }

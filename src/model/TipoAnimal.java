@@ -6,7 +6,11 @@ public enum TipoAnimal {
 	CONEJO("conejo"),
 	CABALLO("caballo"),
 	HAMSTER("hamster"),
-	GALLINA("gallina");
+	GALLINA("gallina"),
+	PAJARO("pajaro"),
+	TORTUGA("tortuga"),
+	PEZ("pez"),
+	SERPIENTE("serpiente");
 	
 	String nombre;
 	
