@@ -69,6 +69,8 @@ public class Main {
       if(entradaUsuario.equals("1")){
         entradaOk = true;
       }
+      botAlarma.verificarFechaAlarma();
+      notificadorCliente.verificarFechaRecordatorio();
     }
 
   }

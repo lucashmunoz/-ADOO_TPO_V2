@@ -6,6 +6,7 @@ import alarma.AlarmaNoAtendida;
 import alarma.BotAlarma;
 import alarma.notificador.NotificadorPushFirebase;
 import dto.AlarmaDTO;
+import java.time.LocalDateTime;
 import model.Usuario;
 
 public class ControllerAlarma {
@@ -18,10 +19,11 @@ public class ControllerAlarma {
 		alarma.setAnimal(dto.getAnimal());
 		alarma.setTipoAlarma(dto.getTipoAlarma());
 		alarma.setEstadoAlarma(new AlarmaNoAtendida());
-		alarma.setUltimaEjecucionAlarma(null);
+		alarma.setUltimaEjecucionAlarma(LocalDateTime.now().minusDays(2));
 		alarma.setDescripcion(dto.getDescripcion());
-		alarma.setPeriodicidadDias(dto.getPeriodicidadDias());
+		alarma.setPeriodicidadDias(1);
 		alarma.setNotificadorPushAdapter(new NotificadorPushFirebase());
+		alarma.setAcciones(dto.getAcciones());
 		BotAlarma.getAlarmas().add(alarma);
 	}
 
