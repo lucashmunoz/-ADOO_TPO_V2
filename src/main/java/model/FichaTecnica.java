@@ -11,7 +11,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class FichaTecnica {
 	private TipoAnimal tipoAnimal;
 	private float altura;

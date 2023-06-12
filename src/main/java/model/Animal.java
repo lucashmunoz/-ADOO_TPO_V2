@@ -10,7 +10,6 @@ import lombok.ToString;
 
 @Getter
 @AllArgsConstructor
-@ToString
 @Setter
 public class Animal {
 

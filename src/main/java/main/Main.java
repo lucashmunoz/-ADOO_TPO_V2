@@ -304,8 +304,6 @@ public class Main {
 
     }
 
-    controllerAnimal.mostrarAnimalesRefugio();
-
   }
 
   private static void darDeAltaUnCliente() {
@@ -325,6 +323,7 @@ public class Main {
     }
     if (entradaUsuario.equals("2")) {
       darDeAltaAdopcion(username);
+      controllerAnimal.mostrarAnimalesRefugio();
     }
 
     if (entradaUsuario.equals("3")) {
@@ -339,7 +338,8 @@ public class Main {
   }
 
   private static void menuVisitador() {
-
+    System.out.println("¿Qué desea hacer?\n1-Realizar Visita\n2-Salir");
+    String entradaUsuario = s.nextLine();
   }
 
 }
