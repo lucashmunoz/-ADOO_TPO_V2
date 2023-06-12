@@ -1,8 +1,8 @@
 package controller;
 
+import alarma.AlarmaSeguimiento;
+import autenticacion.AdapterAutentificacion;
 import dto.UsuarioDTO;
-import model.AdapterAutentificacion;
-import model.AlarmaSeguimiento;
 import model.SeguimientoMedico;
 import model.Visita;
 

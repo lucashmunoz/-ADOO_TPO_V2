@@ -1,7 +1,9 @@
-package model;
+package alarma;
 
 import java.sql.Date;
 import java.util.List;
+
+import model.Animal;
 
 public abstract class Alarma {
 	private Animal animal;

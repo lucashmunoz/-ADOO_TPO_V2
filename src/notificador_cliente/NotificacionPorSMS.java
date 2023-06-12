@@ -1,7 +1,7 @@
-package model;
+package notificador_cliente;
 
 public class NotificacionPorSMS implements EstrategiaDeNotificacion {
 	private AdapterNotificacionSMS adapter;
 	
-	public void enviar(Notificacion notificacion) {}
+	public void enviar(NotificacionCliente notificacion) {}
 }

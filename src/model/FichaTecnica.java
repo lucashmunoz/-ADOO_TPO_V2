@@ -2,6 +2,9 @@ package model;
 
 import java.util.List;
 
+import exportador_ficha_tecnica.ContenidoExportar;
+import exportador_ficha_tecnica.ExportadorFichaMedica;
+
 public class FichaTecnica {
 	private Animal animal;
 	private float altura;

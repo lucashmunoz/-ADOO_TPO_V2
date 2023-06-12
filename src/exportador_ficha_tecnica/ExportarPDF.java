@@ -1,5 +1,4 @@
-package model;
-
+package exportador_ficha_tecnica;
 
 public class ExportarPDF implements EstrategiaDeExportacion {
 

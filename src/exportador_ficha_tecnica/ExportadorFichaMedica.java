@@ -1,4 +1,4 @@
-package model;
+package exportador_ficha_tecnica;
 
 public class ExportadorFichaMedica {
 	private EstrategiaDeExportacion estrategiaDeExportacion;
