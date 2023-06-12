@@ -18,6 +18,7 @@ public class BotAlarma {
     alarma.getNotificadorPushAdapter().notificar(
         new NotificacionPushDTO("Tienes que " + alarma.getAcciones().get(alarma.getAcciones().size() - 1)
             ,alarma.getDescripcion()));
+    System.out.println("Se ha enviado una notificación PUSH con el mensaje: " + "Tienes que " + alarma.getAcciones().get(alarma.getAcciones().size() - 1));
 
   }
   public void verificarFechaAlarma() {

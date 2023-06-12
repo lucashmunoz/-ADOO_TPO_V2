@@ -69,9 +69,15 @@ public class ControllerVeterinario {
 
   public void crearAdopcion(AdopcionDTO dto, SeguimientoDomiciliarioDTO seguimientoDTO) {
 
+    /*
     SeguimientoDomiciliario seguimientoDomiciliario = new SeguimientoDomiciliario(
         Integer.parseInt(seguimientoDTO.getCadenciaVisitas()), seguimientoDTO.getPreferenciasRecordatorio(),
-        Integer.parseInt(seguimientoDTO.getDiasAnticipacionRecordatorio()), LocalDateTime.now().plusDays(Integer.parseInt(seguimientoDTO.getCadenciaVisitas())));
+        Integer.parseInt(seguimientoDTO.getDiasAnticipacionRecordatorio()), LocalDateTime.now().plusSeconds(1));
+    */
+
+    SeguimientoDomiciliario seguimientoDomiciliario = new SeguimientoDomiciliario(
+        1, seguimientoDTO.getPreferenciasRecordatorio(),
+        1, LocalDateTime.now().plusSeconds(1));
 
     dto.getAnimal().getFichaTecnica().setSeguimientoDomiciliario(seguimientoDomiciliario);
     Adopcion.getAdopciones().add(
@@ -80,6 +86,7 @@ public class ControllerVeterinario {
 
     dto.getAnimal().getFichaTecnica().setDueno(dto.getCliente());
     dto.getCliente().getMascotas().add(dto.getAnimal());
+    dto.getAnimal().getFichaTecnica().setSeguimientoDomiciliario(seguimientoDomiciliario);
     System.out.println("El cliente " + dto.getCliente().getNombre() + " " + dto.getCliente().getApellido() + " ha adoptado al animal con legajo: " + dto.getAnimal().getLegajo() + ".");
 
     var alarma = new AlarmaDTO();

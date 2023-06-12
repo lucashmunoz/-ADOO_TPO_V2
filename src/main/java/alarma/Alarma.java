@@ -6,11 +6,13 @@ import java.util.List;
 import alarma.notificador.NotificadorPushAdapter;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import model.Animal;
 import model.Usuario;
 
 @Setter
 @Getter
+@ToString
 public  class Alarma {
 	private Usuario atendidaPor;
 	private Animal animal;
