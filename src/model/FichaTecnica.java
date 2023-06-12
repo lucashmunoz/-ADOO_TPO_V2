@@ -14,5 +14,6 @@ public class FichaTecnica {
 	private ExportadorFichaMedica exportadorFichaMedica;
 	
 	public void getAnimal(Animal animal) {}
-	public void exportar() {}
+	public void exportar(ContenidoExportar contenidoExportar) {
+	}
 }

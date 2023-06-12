@@ -15,5 +15,7 @@ public class Cliente {
 	private List<TipoAnimal> animalesInteresados;
 	private List<Animal> mascotas;
 	
-	public void crearCliente() {}
+	public void crearCliente() {
+		
+	}
 }
