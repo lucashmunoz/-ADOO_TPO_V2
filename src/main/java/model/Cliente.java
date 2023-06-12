@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.ToString;
 
 @Getter
-@ToString
 public class Cliente {
 
   //Lista estatica que simula una tabla en una base de datos
@@ -41,5 +40,9 @@ public class Cliente {
     this.motivoAdopcion = motivoAdopcion;
     this.animalesInteresados = animalesInteresados;
     this.mascotas = new ArrayList<>();
+  }
+
+  public String toString(){
+    return this.nombre + " " + this.apellido;
   }
 }

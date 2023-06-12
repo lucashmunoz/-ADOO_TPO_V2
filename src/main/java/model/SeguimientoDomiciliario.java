@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import notificador_cliente.NotificacionCliente;
 import notificador_cliente.NotificadorCliente;
 
+@Getter
 public class SeguimientoDomiciliario {
 	private int cadenciaVisitas;
 	private NotificadorCliente preferenciasRecordatorio;

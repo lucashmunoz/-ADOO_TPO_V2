@@ -1,9 +1,9 @@
 package model;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Visita {
-	private Date fecha;
+	private LocalDateTime fecha;
 	private String comentario;
-	private String ambiente;
+	private EstadoAmbiente ambiente;
 }
