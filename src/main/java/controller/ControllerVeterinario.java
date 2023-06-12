@@ -1,7 +1,9 @@
 package controller;
 
 
+import alarma.Accion;
 import dto.AdopcionDTO;
+import dto.AlarmaDTO;
 import dto.AnimalDTO;
 import dto.SeguimientoDomiciliarioDTO;
 import java.time.LocalDateTime;
@@ -17,6 +19,8 @@ import utils.Utils;
 public class ControllerVeterinario {
 
   public static ControllerVeterinario instance = new ControllerVeterinario();
+
+  public static ControllerAlarma controllerAlarma = ControllerAlarma.getInstance();
 
   private ControllerVeterinario() {
 
@@ -74,6 +78,18 @@ public class ControllerVeterinario {
     dto.getAnimal().getFichaTecnica().setDueno(dto.getCliente());
     dto.getCliente().getMascotas().add(dto.getAnimal());
     System.out.println("El cliente " + dto.getCliente().getNombre() + " " + dto.getCliente().getApellido() + " ha adoptado al animal con legajo: " + dto.getAnimal().getLegajo() + ".");
+
+    var alarma = new AlarmaDTO();
+    alarma.setAnimal(dto.getAnimal());
+    alarma.setPeriodicidadDias(dto.getAnimal().getFichaTecnica().getSeguimientoDomiciliario().getDiasAnticipacionRecordatorio());
+    var accion = new Accion();
+    accion.setAccionARealizar("Realizar visita.");
+    accion.setComentario("Visita domiciliaria.");
+    alarma.getAcciones().add(accion);
+    alarma.setDescripcion("Alarma de visita.");
+    controllerAlarma.crearAlarma(alarma);
+    System.out.println("Se ha generado la alarma para la visita.");
+
   }
 
   public Optional<Veterinario> getVeterinarioByUsername(String username) {
