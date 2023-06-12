@@ -16,11 +16,12 @@ public class Animal {
 	private static List<Animal> animales;
 	
 	public String setTipoAnimal() {
-		return "";
+		String ta;
+		ta = tipoAnimal.toString();
+		return ta;
 	}
 	
 	public void crearAnimal() {
-		
 	}
 
 }
