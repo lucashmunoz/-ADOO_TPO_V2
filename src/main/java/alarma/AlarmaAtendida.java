@@ -10,8 +10,7 @@ public class AlarmaAtendida implements EstadoAlarma {
 	private Usuario usuarioAtendido;
 	
 	public void cambiarEstadoAlarma(Alarma alarma) {
-		// TODO Auto-generated method stub
-
+			alarma.setEstadoAlarma(new AlarmaAtendida());
 	}
 
 }

@@ -1,17 +1,11 @@
 package controller;
 
-import alarma.AlarmaSeguimiento;
 import autenticacion.AdapterAutentificacion;
 import autenticacion.ModuloAutenticacion;
 import dto.UsuarioDTO;
 import java.util.Optional;
 import model.SeguimientoMedico;
-import model.TipoUsuario;
-import model.Usuario;
-import model.Veterinario;
 import model.Visita;
-import model.Visitador;
-import utils.Utils;
 
 public class ControllerUsuario {
 

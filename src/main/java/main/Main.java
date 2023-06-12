@@ -9,7 +9,6 @@ import dto.AnimalDTO;
 import dto.ClienteDTO;
 import dto.SeguimientoDomiciliarioDTO;
 import dto.UsuarioDTO;
-import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Optional;
