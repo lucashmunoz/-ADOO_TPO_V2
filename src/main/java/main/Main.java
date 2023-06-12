@@ -10,6 +10,10 @@ import dto.AnimalDTO;
 import dto.ClienteDTO;
 import dto.SeguimientoDomiciliarioDTO;
 import dto.UsuarioDTO;
+import exportador_ficha_tecnica.ContenidoExportar;
+import exportador_ficha_tecnica.ExportadorFichaMedica;
+import exportador_ficha_tecnica.ExportarExcel;
+import exportador_ficha_tecnica.ExportarPDF;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Optional;
@@ -37,6 +41,9 @@ public class Main {
 
   private static BotAlarma botAlarma = BotAlarma.getInstance();
 
+  private static NotificadorCliente notificadorCliente = NotificadorCliente.getInstance();
+
+  private static ExportadorFichaMedica exportadorFichaMedica = ExportadorFichaMedica.getInstance();
   private static final Scanner s = new Scanner(System.in);
 
   public static void main(String[] args) {
@@ -45,8 +52,10 @@ public class Main {
     if (user.isPresent()) {
       if (user.get().getTipoUsuario().equals(TipoUsuario.VETERINARIO)) {
         menuVeterinario(user.get().getUsername());
+      }else{
+        menuVisitador();
       }
-      menuVisitador();
+
     }
 
 
@@ -309,9 +318,47 @@ public class Main {
     controllerCliente.mostrarClientes();
   }
 
+  private static void exportarFicha(){
+    boolean entradaOk = false;
+    while (!entradaOk) {
+      System.out.println(
+          "Seleccione el animal del que desea exportar su ficha técnica ingresando su número de legajo tal cual está escrito: ");
+      controllerAnimal.mostrarAnimalesRefugio();
+      String entradaUsuario = s.nextLine();
+      Optional<Animal> animal = controllerAnimal.getAnimalByLegajo(entradaUsuario);
+      if (animal.isEmpty()) {
+        System.out.println(
+            "El número de legajo ingresado no existe en nuestra base de datos. Ingrese uno correcto.");
+      } else {
+        var contenido = new ContenidoExportar();
+        contenido.setContenido("DATOS");
+        contenido.setPath("Desktop");
+        while (!entradaOk){
+          System.out.println("¿En qué formato desea exportar la ficha?:\n1-PDF\n2-Excel");
+           entradaUsuario = s.nextLine();
+          if(entradaUsuario.equals("1")){
+            exportadorFichaMedica.cambiarEstrategia(new ExportarPDF());
+            exportadorFichaMedica.exportar(contenido);
+            entradaOk = true;
+          }
+          if(entradaUsuario.equals("2")){
+            exportadorFichaMedica.cambiarEstrategia(new ExportarExcel());
+            exportadorFichaMedica.exportar(contenido);
+            entradaOk = true;
+          }
+          if(!entradaUsuario.equals("1") && !entradaUsuario.equals("2") ){
+            System.out.println("Ingrese una opción válida.");
+          }
+        }
+
+      }
+    }
+
+  }
+
   private static void menuVeterinario(String username) {
     System.out.println(
-        "¿Qué desea hacer?\n1-Ingresar un animal al refugio\n2-Dar de alta una adopción\n3-Dar de alta un cliente\n4-Salir");
+        "¿Qué desea hacer?\n1-Ingresar un animal al refugio\n2-Dar de alta una adopción\n3-Dar de alta un cliente\n4-Exportar Ficha Tecnica\n5-Salir");
     String entradaUsuario = s.nextLine();
     if (entradaUsuario.equals("1")) {
       ingresarAnimalAlRefugio();
@@ -325,8 +372,12 @@ public class Main {
       darDeAltaUnCliente();
     }
 
+    if (entradaUsuario.equals("4")) {
+      exportarFicha();
+    }
+
     if (!entradaUsuario.equals("3") && !entradaUsuario.equals("2") && !entradaUsuario.equals("1")
-        && !entradaUsuario.equals("4")) {
+        && !entradaUsuario.equals("4") && !entradaUsuario.equals("5")) {
       System.out.println("Ingrese una opción válida");
     }
 

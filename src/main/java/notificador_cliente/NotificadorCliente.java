@@ -10,6 +10,15 @@ import model.Animal;
 @Getter
 public class NotificadorCliente {
 
+  private static NotificadorCliente instance = new NotificadorCliente();
+
+  private NotificadorCliente (){
+  }
+
+  public static NotificadorCliente getInstance(){
+    return instance;
+  }
+
   public void verificarFechaRecordatorio() {
     for (Animal animal : Animal.getAnimales()) {
 

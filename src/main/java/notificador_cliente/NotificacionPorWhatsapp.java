@@ -5,8 +5,7 @@ public class NotificacionPorWhatsapp implements EstrategiaDeNotificacion {
 	private AdapterNotificacionWhatsapp adapter;
 	
 	public void enviar(NotificacionCliente notificacion) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Se envió notificación por WhatsApp.");
 	}
 
 }
