@@ -1,10 +1,10 @@
 package dto;
 
-import lombok.AllArgsConstructor;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import notificador_cliente.NotificadorCliente;
+import notificador_cliente.EstrategiaDeNotificacion;
 
 @Getter
 @Setter
@@ -12,7 +12,7 @@ import notificador_cliente.NotificadorCliente;
 public class SeguimientoDomiciliarioDTO {
 
   private String cadenciaVisitas;
-  private NotificadorCliente preferenciasRecordatorio;
+  private EstrategiaDeNotificacion preferenciasRecordatorio;
   private String diasAnticipacionRecordatorio;
 
 }

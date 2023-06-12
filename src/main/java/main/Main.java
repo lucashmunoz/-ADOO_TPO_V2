@@ -1,5 +1,6 @@
 package main;
 
+import alarma.BotAlarma;
 import controller.ControllerAnimal;
 import controller.ControllerCliente;
 import controller.ControllerUsuario;
@@ -33,6 +34,8 @@ public class Main {
   private static ControllerAnimal controllerAnimal = ControllerAnimal.getInstance();
 
   private static ControllerCliente controllerCliente = ControllerCliente.getInstance();
+
+  private static BotAlarma botAlarma = BotAlarma.getInstance();
 
   private static final Scanner s = new Scanner(System.in);
 
@@ -267,18 +270,15 @@ public class Main {
         System.out.println("Ingrese el método de recordatorio preferido:\n1-SMS\n2-Email\n3-WhatsApp");
         String entradaUsuario = s.nextLine();
         if(entradaUsuario.equals("1")){
-          seguimientoDomiciliarioDTO.setPreferenciasRecordatorio(new NotificadorCliente());
-          seguimientoDomiciliarioDTO.getPreferenciasRecordatorio().cambiarEstrategiaDeNotificacion(new NotificacionPorSMS());
+          seguimientoDomiciliarioDTO.setPreferenciasRecordatorio(new NotificacionPorSMS());
           entradaOk = true;
         }
         if(entradaUsuario.equals("2")){
-          seguimientoDomiciliarioDTO.setPreferenciasRecordatorio(new NotificadorCliente());
-          seguimientoDomiciliarioDTO.getPreferenciasRecordatorio().cambiarEstrategiaDeNotificacion(new NotificacionPorEmail());
+          seguimientoDomiciliarioDTO.setPreferenciasRecordatorio(new NotificacionPorEmail());
           entradaOk = true;
         }
         if(entradaUsuario.equals("3")){
-          seguimientoDomiciliarioDTO.setPreferenciasRecordatorio(new NotificadorCliente());
-          seguimientoDomiciliarioDTO.getPreferenciasRecordatorio().cambiarEstrategiaDeNotificacion(new NotificacionPorWhatsapp());
+          seguimientoDomiciliarioDTO.setPreferenciasRecordatorio(new NotificacionPorWhatsapp());
           entradaOk = true;
         }
         if(!entradaUsuario.equals("1") && !entradaUsuario.equals("2") && !entradaUsuario.equals("3")){
