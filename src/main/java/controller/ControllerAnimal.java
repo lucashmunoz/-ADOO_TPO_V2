@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 import model.Animal;
 
 public class ControllerAnimal {
@@ -15,6 +16,20 @@ public class ControllerAnimal {
 
 	public Optional<Animal> getAnimalByLegajo(String legajo){
 		return Animal.getAnimales().stream().filter(a -> a.getLegajo().equals(legajo)).findFirst();
+	}
+
+	public boolean obtenerAnimalesAVisitar(){
+		var animales = Animal.getAnimales().stream().filter(a -> a.getFichaTecnica().getDueno() != null).collect(
+				Collectors.toList());
+		animales.forEach(System.out::println);
+
+		if(animales.isEmpty()){
+			System.out.println("No hay animales en el refugio que puedan ser visitados.");
+			return false;
+		}
+
+		return true;
+
 	}
 
 }

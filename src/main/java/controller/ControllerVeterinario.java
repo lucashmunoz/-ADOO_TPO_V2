@@ -8,6 +8,7 @@ import dto.AlarmaDTO;
 import dto.AnimalDTO;
 import dto.SeguimientoDomiciliarioDTO;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Optional;
 import model.Adopcion;
 import model.Animal;
@@ -72,6 +73,7 @@ public class ControllerVeterinario {
         Integer.parseInt(seguimientoDTO.getCadenciaVisitas()), seguimientoDTO.getPreferenciasRecordatorio(),
         Integer.parseInt(seguimientoDTO.getDiasAnticipacionRecordatorio()), LocalDateTime.now().plusDays(Integer.parseInt(seguimientoDTO.getCadenciaVisitas())));
 
+    dto.getAnimal().getFichaTecnica().setSeguimientoDomiciliario(seguimientoDomiciliario);
     Adopcion.getAdopciones().add(
         new Adopcion(dto.getAnimal(), dto.getCliente(), LocalDateTime.now(),
             dto.getVeterinario(), seguimientoDomiciliario));
@@ -82,6 +84,7 @@ public class ControllerVeterinario {
 
     var alarma = new AlarmaDTO();
     alarma.setAnimal(dto.getAnimal());
+    alarma.setAcciones(new ArrayList<>());
     alarma.setPeriodicidadDias(dto.getAnimal().getFichaTecnica().getSeguimientoDomiciliario().getDiasAnticipacionRecordatorio());
     var accion = new Accion();
     accion.setAccionARealizar("Realizar visita.");
