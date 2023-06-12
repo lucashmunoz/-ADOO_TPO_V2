@@ -12,7 +12,7 @@ public class Cliente {
 	private String ocupacion;
 	private boolean otrasMascotas;
 	private String motivoAdopcion;
-	private List<TipoAnimal> animalesInteresado;
+	private List<TipoAnimal> animalesInteresados;
 	private List<Animal> mascotas;
 	
 	public void crearCliente() {}
