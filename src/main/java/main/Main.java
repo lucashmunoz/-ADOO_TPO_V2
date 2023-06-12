@@ -201,8 +201,6 @@ public class Main {
         new ClienteDTO("23345678", "Daniel", "Ramírez", "Casado", "danielramirez@example.com",
             "0011223344", "Profesional", false, "Compañía y protección",
             Arrays.asList(TipoAnimal.GATO, TipoAnimal.CONEJO)));
-
-
   }
 
   private static Optional<UsuarioDTO> login() {
@@ -298,10 +296,8 @@ public class Main {
       if(controllerVeterinario.validarSeguimientoDomiciliario(seguimientoDomiciliarioDTO)){
         datosOK = true;
         controllerVeterinario.crearAdopcion(adopcionDTO, seguimientoDomiciliarioDTO);
-      }else{
+      }else
         entradaOk = false;
-      }
-
     }
 
   }
