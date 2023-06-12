@@ -13,7 +13,7 @@ public class ControllerVeterinario {
 
   }
 
-  public ControllerVeterinario getInstance() {
+  public static ControllerVeterinario getInstance() {
     return instance;
   }
 

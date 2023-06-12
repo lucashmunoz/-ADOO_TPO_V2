@@ -7,9 +7,11 @@ import exportador_ficha_tecnica.ContenidoExportar;
 import exportador_ficha_tecnica.ExportadorFichaMedica;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class FichaTecnica {
 	private TipoAnimal tipoAnimal;
 	private float altura;

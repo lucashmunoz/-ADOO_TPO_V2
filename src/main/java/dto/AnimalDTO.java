@@ -1,6 +1,7 @@
 package dto;
 
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import model.TipoAnimal;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class AnimalDTO {
   private TipoAnimal tipoAnimal;
   private float altura;
