@@ -1,8 +1,10 @@
 package controller;
 
+import dto.AnimalDTO;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import model.Animal;
+import model.FichaTecnica;
 
 public class ControllerAnimal {
 	private static ControllerAnimal instance = new ControllerAnimal();
@@ -10,12 +12,11 @@ public class ControllerAnimal {
 	public static ControllerAnimal getInstance() {return instance;}
 
 	public void mostrarAnimalesRefugio(){
-		Animal.getAnimales()
-				.forEach(a -> System.out.println("Legajo: " + a.getLegajo() + " Tipo animal: " + a.getFichaTecnica().getTipoAnimal() + " Dueño: " + a.getFichaTecnica().getDueno() + " Es adpotable: " + !a.isEsSalvaje() + " Está bajo tratamiento: " + a.isEstaBajoTratamiento()));
+		Animal.mostrarAnimalesRefugio();
 	}
 
 	public Optional<Animal> getAnimalByLegajo(String legajo){
-		return Animal.getAnimales().stream().filter(a -> a.getLegajo().equals(legajo)).findFirst();
+		return Animal.getAnimalByLegajo(legajo);
 	}
 
 	public boolean obtenerAnimalesAVisitar(){
@@ -31,5 +32,13 @@ public class ControllerAnimal {
 		return true;
 
 	}
+
+	public void ingresarAnimal(AnimalDTO dto) {
+		Animal.agregarAnimal(new Animal(dto.getLegajo(),
+				new FichaTecnica(dto.getTipoAnimal(), dto.getAltura(), dto.getPeso(), dto.getEdad(),
+						dto.isCondicionMedicaOk()), dto.getFechaIngreso(), dto.isEsSalvaje(),
+				dto.isEstaBajoTratamiento()));
+	}
+
 
 }

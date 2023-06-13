@@ -2,15 +2,13 @@ package alarma;
 
 import java.sql.Date;
 
+import java.time.LocalDateTime;
 import model.Usuario;
 
 public class AlarmaAtendida implements EstadoAlarma {
 
-	private Date fecha;
-	private Usuario usuarioAtendido;
-	
-	public void cambiarEstadoAlarma(Alarma alarma) {
-			alarma.setEstadoAlarma(new AlarmaAtendida());
+	public void atenderAlarma(Alarma alarma, Usuario user) {
+		System.out.println("La alarma ya fue atendida por otro usuario.");
 	}
 
 }

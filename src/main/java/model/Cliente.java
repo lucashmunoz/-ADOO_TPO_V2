@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -45,4 +46,17 @@ public class Cliente {
   public String toString(){
     return this.nombre + " " + this.apellido;
   }
+
+  public static void agregarCliente(Cliente cliente){
+    clientes.add(cliente);
+  }
+
+  public static Optional<Cliente> getClienteByDNI(String dni){
+    return clientes.stream().filter(c -> c.getDni().equals(dni)).findFirst();
+  }
+
+  public static void mostrarClientes() {
+    clientes.forEach(c -> System.out.println("DNI: " + c.getDni() + " Nombre: " + c.getNombre() + " Apellido: " + c.getApellido() + " Tiene otras mascotas: " + c.isOtrasMascotas() ));
+  }
+
 }

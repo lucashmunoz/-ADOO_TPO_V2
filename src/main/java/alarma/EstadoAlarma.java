@@ -1,5 +1,7 @@
 package alarma;
 
+import model.Usuario;
+
 public interface EstadoAlarma {
-	public void cambiarEstadoAlarma(Alarma alarma);
+	 void atenderAlarma(Alarma alarma, Usuario user);
 }
