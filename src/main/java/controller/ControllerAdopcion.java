@@ -1,42 +1,28 @@
 package controller;
 
-
 import alarma.Accion;
 import alarma.TipoAlarma;
 import dto.AdopcionDTO;
 import dto.AlarmaDTO;
-import dto.AnimalDTO;
 import dto.SeguimientoDomiciliarioDTO;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Optional;
 import model.Adopcion;
-import model.Animal;
-import model.FichaTecnica;
 import model.SeguimientoDomiciliario;
-import model.Veterinario;
 import utils.Utils;
 
+public class ControllerAdopcion {
 
-public class ControllerVeterinario {
-
-  public static ControllerVeterinario instance = new ControllerVeterinario();
+  public static ControllerAdopcion instance = new ControllerAdopcion();
 
   public static ControllerAlarma controllerAlarma = ControllerAlarma.getInstance();
 
-  private ControllerVeterinario() {
+  private ControllerAdopcion() {
 
   }
 
-  public static ControllerVeterinario getInstance() {
+  public static ControllerAdopcion getInstance() {
     return instance;
-  }
-
-  public void ingresarAnimal(AnimalDTO dto) {
-    Animal.getAnimales().add(new Animal(dto.getLegajo(),
-        new FichaTecnica(dto.getTipoAnimal(), dto.getAltura(), dto.getPeso(), dto.getEdad(),
-            dto.isCondicionMedicaOk()), dto.getFechaIngreso(), dto.isEsSalvaje(),
-        dto.isEstaBajoTratamiento()));
   }
 
 
@@ -69,7 +55,9 @@ public class ControllerVeterinario {
 
   public void crearAdopcion(AdopcionDTO dto, SeguimientoDomiciliarioDTO seguimientoDTO) {
 
-    /*
+    /* Esto es para que reciba tal cual los parámetros ingresados en lugar de los hardcodeados
+
+
     SeguimientoDomiciliario seguimientoDomiciliario = new SeguimientoDomiciliario(
         Integer.parseInt(seguimientoDTO.getCadenciaVisitas()), seguimientoDTO.getPreferenciasRecordatorio(),
         Integer.parseInt(seguimientoDTO.getDiasAnticipacionRecordatorio()), LocalDateTime.now().plusSeconds(1));
@@ -80,7 +68,7 @@ public class ControllerVeterinario {
         1, LocalDateTime.now().plusSeconds(1));
 
     dto.getAnimal().getFichaTecnica().setSeguimientoDomiciliario(seguimientoDomiciliario);
-    Adopcion.getAdopciones().add(
+    Adopcion.crearAdopcion(
         new Adopcion(dto.getAnimal(), dto.getCliente(), LocalDateTime.now(),
             dto.getVeterinario(), seguimientoDomiciliario));
 
@@ -105,11 +93,6 @@ public class ControllerVeterinario {
 
   }
 
-  public Optional<Veterinario> getVeterinarioByUsername(String username) {
-    return Veterinario.getVeterinarios().stream().filter(v -> v.getUsername().equals(username))
-        .findFirst();
-  }
-
 
   public boolean validarSeguimientoDomiciliario(SeguimientoDomiciliarioDTO dto) {
 
@@ -125,6 +108,5 @@ public class ControllerVeterinario {
 
     return true;
   }
-
 
 }

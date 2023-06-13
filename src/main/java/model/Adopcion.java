@@ -18,7 +18,10 @@ public class Adopcion{
 	private Animal animal;
 	private Cliente cliente;
 	private LocalDateTime fechaAdopcion;
-	private Veterinario veterinario;
+	private Usuario veterinario;
 	private SeguimientoDomiciliario seguimientoDomiciliario;
 
+	public static void crearAdopcion(Adopcion adopcion){
+			adopciones.add(adopcion);
+	}
 }

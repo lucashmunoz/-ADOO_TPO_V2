@@ -1,13 +1,13 @@
 package dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.TipoUsuario;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@AllArgsConstructor
 public class UsuarioDTO {
 	private String username;
 	private TipoUsuario tipoUsuario;

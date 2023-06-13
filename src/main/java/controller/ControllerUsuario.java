@@ -5,7 +5,9 @@ import autenticacion.ModuloAutenticacion;
 import dto.UsuarioDTO;
 import java.util.Optional;
 import model.SeguimientoMedico;
+import model.Usuario;
 import model.Visita;
+import utils.Utils;
 
 public class ControllerUsuario {
 
@@ -24,9 +26,12 @@ public class ControllerUsuario {
     return adapter.traerDatosUsuario(username);
   }
 
-  public void realizarVisita(Visita visita) {
+  public void agregarUsuario(UsuarioDTO dto) {
+    Usuario.crearUsuario(new Usuario(dto.getUsername(), dto.getTipoUsuario(), dto.getNombre(),
+        dto.getApellido(), dto.getDni(), dto.getEmail(), dto.getNumTelefono()));
   }
 
-  public void realizarSeguimiento() {
+  public Optional<Usuario> getDatosUsuarioByUsername(String username) {
+    return Usuario.getDatosUsuarioByUsername(username);
   }
 }

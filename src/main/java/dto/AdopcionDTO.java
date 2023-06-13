@@ -1,16 +1,13 @@
 package dto;
 
-import java.sql.Date;
-
 import java.time.LocalDateTime;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.Adopcion;
 import model.Animal;
 import model.Cliente;
-import model.SeguimientoDomiciliario;
-import model.Veterinario;
+import model.Usuario;
 
 @Getter
 @Setter
@@ -19,5 +16,6 @@ public class AdopcionDTO {
 	private Animal animal;
 	private Cliente cliente;
 	private LocalDateTime fechaAdopcion;
-	private Veterinario veterinario;
+	private Usuario veterinario;
+
 }

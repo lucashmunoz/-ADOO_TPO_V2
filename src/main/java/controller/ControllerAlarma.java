@@ -28,7 +28,7 @@ public class ControllerAlarma {
 	}
 
 	public void atenderAlarma(Alarma alarma, Usuario usuario){
-		alarma.atenderAlarma(new AlarmaAtendida(), usuario);
+		alarma.atenderAlarma(usuario);
 	}
 
 

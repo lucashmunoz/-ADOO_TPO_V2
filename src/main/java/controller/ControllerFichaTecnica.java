@@ -1,6 +1,7 @@
 package controller;
 
 import exportador_ficha_tecnica.ContenidoExportar;
+import exportador_ficha_tecnica.EstrategiaDeExportacion;
 import exportador_ficha_tecnica.ExportadorFichaMedica;
 
 public class ControllerFichaTecnica {
@@ -14,7 +15,8 @@ public class ControllerFichaTecnica {
 		return instance;
 	}
 
-	public void exportar(ContenidoExportar contenido){
+	public void exportar(ContenidoExportar contenido, EstrategiaDeExportacion estrategiaDeExportacion){
+		exportadorFichaMedica.cambiarEstrategia(estrategiaDeExportacion);
 		exportadorFichaMedica.exportar(contenido);
 	}
 

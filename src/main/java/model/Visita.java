@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Visita {
-	private Visitador visitador;
+	private Usuario visitador;
 	private LocalDateTime fecha;
 	private String comentario;
 	private EstadoAmbiente ambiente;

@@ -14,7 +14,6 @@ import model.Usuario;
 @Getter
 @ToString
 public  class Alarma {
-	private Usuario atendidaPor;
 	private Animal animal;
 	private TipoAlarma tipoAlarma;
 	private int periodicidadDias;
@@ -25,9 +24,12 @@ public  class Alarma {
 	private NotificadorPushAdapter notificadorPushAdapter;
 
 
-	public void atenderAlarma(EstadoAlarma estadoAlarma, Usuario usuario) {
-		this.estadoAlarma = estadoAlarma;
-		this.atendidaPor = usuario;
+	public void atenderAlarma(Usuario usuario) {
+		this.estadoAlarma.atenderAlarma(this, usuario);
+	}
+
+	public void notificar(NotificacionPushDTO dto){
+		notificadorPushAdapter.notificar(dto);
 	}
 
 }
